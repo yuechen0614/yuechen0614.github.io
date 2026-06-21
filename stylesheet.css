@@ -498,3 +498,42 @@ a:hover {
 .badge a:hover {
   opacity: 0.85;
 }
+
+/* Publication filter toggle */
+.pub-filter {
+  display: inline-flex;
+  gap: 4px;
+  padding: 4px;
+  margin-bottom: 24px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  box-shadow: var(--shadow-sm);
+}
+
+.pub-filter-btn {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 8px 20px;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pub-filter-btn:hover {
+  color: var(--primary-color);
+}
+
+.pub-filter-btn.is-active {
+  background: var(--primary-color);
+  color: #fff;
+  box-shadow: var(--shadow-sm);
+}
+
+.section.research[data-pub-filter="selected"] .paper-card:not(.first-author) {
+  display: none;
+}

@@ -167,12 +167,17 @@
         </ul>
       </section>
 
-      <section class="section research">
+      <section class="section research" data-pub-filter="selected">
         <h2 class="section-title">Publications</h2>
         <p class="sub-text">
           I'm open to collaborations on related projects. <br>
           <span style="font-size: 0.9em; color: #666;">* denotes equal contribution. Highlighted papers indicate first/co-first authorship.</span>
         </p>
+
+        <div class="pub-filter" role="group" aria-label="Filter publications">
+          <button type="button" class="pub-filter-btn is-active" data-filter="selected" aria-pressed="true">Selected</button>
+          <button type="button" class="pub-filter-btn" data-filter="all" aria-pressed="false">All</button>
+        </div>
 
         <div class="paper-card first-author">
           <div class="paper-img">
@@ -610,5 +615,44 @@
       </footer>
 
     </div>
+
+    <script>
+      (function () {
+        var section = document.querySelector('.section.research');
+        if (!section) return;
+
+        var buttons = section.querySelectorAll('.pub-filter-btn');
+
+        function setFilter(mode) {
+          section.setAttribute('data-pub-filter', mode);
+          buttons.forEach(function (btn) {
+            var isActive = btn.dataset.filter === mode;
+            btn.classList.toggle('is-active', isActive);
+            btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+          });
+        }
+
+        function revealHashTarget() {
+          var id = location.hash.slice(1);
+          if (!id) return;
+
+          var target = document.getElementById(id);
+          if (!target || !target.classList.contains('paper-card')) return;
+          if (!target.classList.contains('first-author')) {
+            setFilter('all');
+          }
+        }
+
+        buttons.forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            setFilter(btn.dataset.filter);
+          });
+        });
+
+        setFilter('selected');
+        revealHashTarget();
+        window.addEventListener('hashchange', revealHashTarget);
+      })();
+    </script>
   </body>
 </html>
