@@ -270,6 +270,27 @@ a:hover {
     display: inline-block;
 }
 
+.older-news {
+  margin-top: 6px;
+}
+
+.older-news summary {
+  width: fit-content;
+  padding: 8px 12px;
+  border-radius: 8px;
+  color: var(--primary-color);
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.older-news summary:hover {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.older-news .news-list {
+  margin-top: 18px;
+}
+
 /* Animations */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(30px); }
@@ -447,12 +468,24 @@ a:hover {
 /* Footer */
 .footer {
   text-align: center;
-  margin-top: 80px;
+  margin-top: 72px;
+  margin-bottom: 16px;
+  padding-top: 22px;
+  border-top: 2px dotted rgba(0, 0, 0, 0.12);
+  color: #9a9a9a;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+}
+
+.visitor-badge {
   margin-bottom: 40px;
-  color: #a0aec0;
-  font-size: 0.9rem;
-  padding-top: 40px;
-  border-top: 1px solid rgba(0,0,0,0.05);
+  line-height: 0;
+  text-align: center;
+}
+
+.visitor-badge img {
+  display: inline-block;
 }
 
 /* Mobile Responsiveness */
