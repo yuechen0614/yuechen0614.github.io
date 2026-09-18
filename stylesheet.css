@@ -381,13 +381,12 @@ a:hover {
 .paper-img img,
 .paper-img video {
   width: 100%;
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
+  height: auto;
+  object-fit: contain;
   border-radius: 10px;
   box-shadow: var(--shadow-sm);
   transition: transform 0.3s ease;
   display: block;
-  background: #0f172a;
 }
 
 .paper-card:hover .paper-img img,
