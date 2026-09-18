@@ -11,19 +11,24 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   </head>
 
   <body>
+    <nav class="page-nav" aria-label="Page">
+      <a href="#about">About</a>
+      <a href="#news">News</a>
+      <a href="#publications">Publications</a>
+      <a href="#honors">Honors</a>
+    </nav>
     <div class="container">
-      <section class="profile-section">
+      <section class="profile-section" id="about">
         <div class="profile-text">
           <h1 class="name">Yue Chen <span class="cn-name">陈越</span></h1>
           
           <p class="bio">
             I am currently a graduate student at <a href="https://english.pku.edu.cn/">Peking University</a> with 
-            Agibot Lab advised by Professor <a href="https://zsdonghao.github.io/">Hao Dong</a>. I am also fortunate to have mentorship from <a href="https://warshallrho.github.io/">Ruihai Wu</a>.
+            Agibot Lab advised by Professor <a href="https://zsdonghao.github.io/">Hao Dong</a>.
           </p>
           <p class="bio">
             I've also had great experiences working at <a href="https://www.microsoft.com/en-us/research/lab/microsoft-research-asia/">Microsoft Research Asia</a> and <a href="https://seed.bytedance.com/en/">ByteDance Seed</a>.
@@ -32,9 +37,12 @@
           </p>
 
           <div class="social-links">
-            <a href="mailto:yuechen020614@gmail.com" class="pill-link"><i class="fa-solid fa-envelope"></i> Email</a>
-            <a href="https://scholar.google.com/citations?user=v8ehFSQAAAAJ&hl=zh-CN" class="pill-link"><i class="fa-solid fa-graduation-cap"></i> Scholar</a>
-            <a href="https://github.com/yuechen0614" class="pill-link"><i class="fa-brands fa-github"></i> Github</a>
+            <a href="mailto:yuechen020614@gmail.com" class="pill-link"><img src="images/icon/email.png" alt=""> Email</a>
+            <a href="https://scholar.google.com/citations?user=v8ehFSQAAAAJ&hl=zh-CN" target="_blank" class="pill-link"><img src="images/icon/google_scholar.png" alt=""> Scholar</a>
+            <a href="https://github.com/yuechen0614" target="_blank" class="pill-link"><img src="images/icon/github.svg" alt=""> GitHub</a>
+            <a href="https://x.com/yuechen614" target="_blank" class="pill-link"><img src="images/icon/x.png" alt=""> X</a>
+            <a href="https://xhslink.cn/o/iLToqx45ds" target="_blank" class="pill-link"><img src="images/icon/xiaohongshu.png" alt=""> Rednote</a>
+            <a href="images/wechat.jpg" target="_blank" class="pill-link"><img src="images/icon/wechat.png" alt=""> WeChat</a>
           </div>
         </div>
 
@@ -56,9 +64,37 @@
         </a>
       </div>
 
-      <section class="section news">
+      <section class="section news" id="news">
         <h2 class="section-title"><i class="fa-solid fa-bullhorn" style="margin-right: 8px; color: var(--primary-color);"></i>News</h2>
         <ul class="news-list">
+          <li>
+            <span class="date">[2026/09]</span>
+            <span class="news-text">
+              <i class="fa-solid fa-scroll news-icon" style="color: #4dabf7;"></i>
+              Released official evaluations of <a href="#gpt6-astra">GPT-6 Astra on RoboDojo</a>! 🤖
+            </span>
+          </li>
+          <li>
+            <span class="date">[2026/09]</span>
+            <span class="news-text">
+              <i class="fa-solid fa-scroll news-icon" style="color: #4dabf7;"></i>
+              Released <a href="#openwam">OpenWAM</a>, an open stack for systematic world–action model pretraining! 🌍
+            </span>
+          </li>
+          <li>
+            <span class="date">[2026/08]</span>
+            <span class="news-text">
+              <i class="fa-solid fa-scroll news-icon" style="color: #4dabf7;"></i>
+              Released <a href="#xpolicylab">XPolicyLab</a>, a unified standard for robot policy evaluation and deployment! 🧩
+            </span>
+          </li>
+          <li>
+            <span class="date">[2026/07]</span>
+            <span class="news-text">
+              <i class="fa-solid fa-scroll news-icon" style="color: #4dabf7;"></i>
+              Released <a href="#robodojo">RoboDojo</a>, a unified sim-and-real benchmark for generalist robot manipulation! 🤖
+            </span>
+          </li>
           <li>
             <span class="date">[2026/06]</span>
             <span class="news-text">
@@ -73,6 +109,10 @@
               <a href="#digseg">DiGSeg</a> accepted to <strong>ECCV 2026</strong>! 🎉
             </span>
           </li>
+        </ul>
+        <details class="older-news">
+          <summary>Earlier news</summary>
+          <ul class="news-list">
           <li>
             <span class="date">[2026/04]</span>
             <span class="news-text">
@@ -101,10 +141,6 @@
               <a href="#pa3ff">PA3FF</a> accepted to <strong>ICLR 2026</strong>! 🎉
             </span>
           </li>
-        </ul>
-        <details class="older-news">
-          <summary>Earlier news</summary>
-          <ul class="news-list">
           <li>
             <span class="date">[2026/01]</span>
             <span class="news-text">
@@ -172,7 +208,7 @@
         </details>
       </section>
 
-      <section class="section research" data-pub-filter="selected">
+      <section class="section research" id="publications" data-pub-filter="selected">
         <h2 class="section-title">Publications</h2>
         <p class="sub-text">
           I'm open to collaborations on related projects. <br>
@@ -184,23 +220,83 @@
           <button type="button" class="pub-filter-btn" data-filter="all" aria-pressed="false">All</button>
         </div>
 
+        <div class="paper-card first-author" id="gpt6-astra">
+          <div class="paper-img">
+            <img src="images/gpt6-astra.png" alt="GPT-6 Astra">
+          </div>
+          <div class="paper-info">
+            <h3 class="paper-title">An Unexpected Robot Policy: Early Evaluations of GPT-6 Astra on RoboDojo and Beyond</h3>
+            <div class="authors authors-long">
+              Wenbo Zhang*§, Kaixuan Wang*, Yutao Ouyang*, Xiaoyu Huang, Liyang Li, Kailun Su, Weiyang Jin, Wenhao Chai, Haotian Liang, Zhiyang Dou, <strong>Yue Chen†</strong>, Tianxing Chen†
+            </div>
+            <div class="links">
+              <a href="https://robodojo-benchmark.com/report/gpt-6-astra-eval" target="_blank"><i class="fa-solid fa-globe"></i> Report</a>
+              <a href="https://huggingface.co/spaces/Solomonz/roboprobe-console" target="_blank"><i class="fa-solid fa-video"></i> Videos</a>
+              <span class="soon"><i class="fa-brands fa-github"></i> Code (coming soon)</span>
+            </div>
+            <div class="venue-tag">Technical Report</div>
+          </div>
+        </div>
+
+        <div class="paper-card selected" id="openwam">
+          <div class="paper-img">
+            <img src="images/openwam.jpg" alt="OpenWAM">
+          </div>
+          <div class="paper-info">
+            <h3 class="paper-title">OpenWAM: An Open, Modular Exploration Towards Systematic World–Action Model Pretraining</h3>
+            <div class="authors authors-long authors-until-self">
+              Yuran Wang*†, Siqiao Huang*†, Mingleyang Li*, Chenhao Zhang*, Jiaqi Liang*, Weiyang Jin, <strong>Yue Chen</strong>, Xuemin Chi, Donghao Zhou, Qize Yu, Yu-Kai Wang, Yuhan Rui, Shenzhe Yao, Zhen Yuan, Zhenhao Shen, Kefei Zhu, Zijie Zhu, Ning Gao, Xiaowei Chi, Guanqi He, Shanghang Zhang, Hao Dong, Lin Shao‡, Hang Zhao‡
+            </div>
+            <div class="links">
+              <a href="https://openwam-official.github.io/" target="_blank"><i class="fa-solid fa-globe"></i> Project</a>
+              <a href="https://arxiv.org/pdf/2609.07398" target="_blank"><i class="fa-solid fa-file-pdf"></i> Paper</a>
+              <a href="https://arxiv.org/abs/2609.07398" target="_blank"><i class="fa-solid fa-file-lines"></i> arXiv</a>
+              <a href="https://github.com/OpenWAM-Official/OpenWAM" target="_blank"><i class="fa-brands fa-github"></i> Code</a>
+              <a href="https://huggingface.co/OpenWAM" target="_blank"><i class="fa-solid fa-database"></i> Data</a>
+            </div>
+            <div class="venue-tag">Preprint</div>
+          </div>
+        </div>
+
         <div class="paper-card first-author" id="robodojo">
           <div class="paper-img">
             <img src="images/robodojo.png" alt="RoboDojo">
           </div>
           <div class="paper-info">
             <h3 class="paper-title">RoboDojo: A Unified Sim-and-Real Benchmark for Comprehensive Evaluation of Generalist Robot Manipulation Policies</h3>
-            <div class="authors">
+            <div class="authors authors-long">
               Tianxing Chen*§, <strong>Yue Chen*§†</strong>, Zixuan Li*, Junyuan Tang*, Kailun Su*, Haoran Lu*, Weijie Wan*, Baijun Chen*, Songling Liu*, Haowen Yan, Honghao Su, Zhiyang Dou, Kaixuan Wang, Dandan Zhang, Yunze Liu, Yan Qin, Qiwei Liang, Qiwei Wu, Zijian Lin, Wenwei Lin, Yuran Wang, Minghua He, Tianshu Wu, Ruihai Wu, Jingquan Zhou, Kai-Chong Lei, Haibao Yu, Yuanfeng Ji, Weiyang Jin, Guanyu Lin, Xiaofan Li, Qi Xiong, Renjing Xu, Zhongyu Li, Wenhao Chai, Enze Xie, Ziwei Wang, Yao Mu, Hao Dong, Wojciech Matusik, Mingyu Ding†, Wenbo Ding†, Ping Luo†, Masayoshi Tomizuka†
             </div>
             <div class="links">
-              <a href="https://robodojo-benchmark.com/" target="_blank"><i class="fa-solid fa-globe"></i> Website</a> /
-              <a href="https://arxiv.org/pdf/2607.04434" target="_blank"><i class="fa-solid fa-file-pdf"></i> Paper</a> /
-              <a href="https://arxiv.org/abs/2607.04434" target="_blank"><i class="fa-solid fa-file-lines"></i> arXiv</a> /
-              <a href="https://github.com/RoboDojo-Benchmark/RoboDojo" target="_blank"><i class="fa-brands fa-github"></i> Code</a> /
-              <a href="https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo" target="_blank"><i class="fa-solid fa-database"></i> Data</a>
+              <a href="https://robodojo-benchmark.com/" target="_blank"><i class="fa-solid fa-globe"></i> Project Page</a>
+              <a href="https://robodojo-benchmark.com/LeaderBoard" target="_blank"><i class="fa-solid fa-trophy"></i> Leaderboard</a>
+              <a href="https://arxiv.org/pdf/2607.04434" target="_blank"><i class="fa-solid fa-file-pdf"></i> Paper</a>
+              <a href="https://arxiv.org/abs/2607.04434" target="_blank"><i class="fa-solid fa-file-lines"></i> arXiv</a>
+              <a href="https://mp.weixin.qq.com/s/GzF9cX8uIJr_YlO9GTX7bQ" target="_blank"><i class="fa-solid fa-newspaper"></i> 量子位</a>
+              <a href="https://mp.weixin.qq.com/s/J4LWa0m6tMgChf0awSu6hg" target="_blank"><i class="fa-solid fa-newspaper"></i> 机器之心</a>
             </div>
             <div class="venue-tag">Preprint</div>
+          </div>
+        </div>
+
+        <div class="paper-card first-author" id="xpolicylab">
+          <div class="paper-img">
+            <video autoplay loop muted playsinline aria-label="XPolicyLab demo">
+              <source src="images/xpolicylab.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="paper-info">
+            <h3 class="paper-title">XPolicyLab: A Unified Standard and Open Ecosystem for Robot Policy Evaluation and Deployment</h3>
+            <div class="authors authors-long">
+              Tianxing Chen*§, <strong>Yue Chen*</strong>, Tian Nian*, Zijian Cai*, Guangyu Chen*, Wenwei Lin*, Qiwei Liang*, Zanxin Chen*, Peicheng Xiang, Kailun Su, Zixuan Li, Junyuan Tang, Yan Qin, Qiangyu Chen, Shaolong Zhu, Xiang Li, Jiahao Zhang, Weijie Wan, Baijun Chen, Honghao Su, Kehe Ye, Shujia Liu, Huan-ang Gao, Kaixuan Wang, Haotian Liang, Yunze Liu, Mingleyang Li, Yuran Wang, Boyu Chen, Hongzhe Bi, Shuhe Huang, Hengkai Tan, Jisong Cai, Yao Mu, Jun Guo, Xiaofeng Wang, Zheng Zhu, Weijie Ke, Hengtao Li, Yiqing Wang, Tengyue Jiang, Yuhang Tang, Xiaofan Li, Ganlin Yang, Zhangzheng Tu, Shuai Yang, Wenxuan Song, Pengxiang Ding, Kaidong Zhang, Yu Sun, Junliang Guo, Tong Zhang, Yixing Chen, Rongxu Cui, Zongzheng Zhang, Haoxiang Ma, Junhao Cai, Haoyu Zhang, Senqiao Yang, Jinhui Ye, Pengguang Chen, Shu Liu, Xiu Su, Wenhan Fang, Wenhao Li, Yichao Cao, Chengyao Wang, Qiang Chen, Wenbo Ding†, Ping Luo†
+            </div>
+            <div class="links">
+              <a href="https://xpolicylab.github.io/" target="_blank"><i class="fa-solid fa-globe"></i> Project</a>
+              <a href="https://arxiv.org/pdf/2608.09892" target="_blank"><i class="fa-solid fa-file-pdf"></i> Paper</a>
+              <a href="https://arxiv.org/abs/2608.09892" target="_blank"><i class="fa-solid fa-file-lines"></i> arXiv</a>
+              <a href="https://github.com/XPolicyLab/XPolicyLab" target="_blank"><i class="fa-brands fa-github"></i> Code</a>
+            </div>
+            <div class="venue-tag">Under Review</div>
           </div>
         </div>
 
@@ -230,8 +326,8 @@
               Qize Yu, Jiadi You, Yuran Wang, Jiaqi Liang, Bowen Ping, Yang Tian, <strong>Yue Chen</strong>, Minghong Cai, Zeying Gong, Ruihai Wu, Yinchuan Li, Junwei Liang, Yingcong Chen
             </div>
             <div class="links">
-              <a href="https://skywalker-yqz.github.io/AffordanceVLA/" target="_blank"><i class="fa-solid fa-globe"></i> Project</a> /
-              <a href="https://arxiv.org/pdf/2606.06155" target="_blank"><i class="fa-solid fa-file-pdf"></i> Paper</a> /
+              <a href="https://skywalker-yqz.github.io/AffordanceVLA/" target="_blank"><i class="fa-solid fa-globe"></i> Project</a>
+              <a href="https://arxiv.org/pdf/2606.06155" target="_blank"><i class="fa-solid fa-file-pdf"></i> Paper</a>
               <a href="https://github.com/Skywalker-yqz/AffordanceVLA/" target="_blank"><i class="fa-brands fa-github"></i> Code</a>
             </div>
             <div class="venue-tag">Preprint</div>
@@ -250,8 +346,8 @@
               Tianshu Wu*, Xiangqi Kong*, <strong>Yue Chen*</strong>, Qize Yu, Hang Ye, Jia Li, Yizhou Wang, Hao Dong†
             </div>
             <div class="links">
-              <a href="https://tianshuwu.github.io/sugar-humanoid/" target="_blank"><i class="fa-solid fa-globe"></i> Project</a> /
-              <a href="https://arxiv.org/pdf/2605.20373" target="_blank"><i class="fa-solid fa-file-pdf"></i> Paper</a> /
+              <a href="https://tianshuwu.github.io/sugar-humanoid/" target="_blank"><i class="fa-solid fa-globe"></i> Project</a>
+              <a href="https://arxiv.org/pdf/2605.20373" target="_blank"><i class="fa-solid fa-file-pdf"></i> Paper</a>
               <a href="https://github.com/tianshuwu/SUGAR" target="_blank"><i class="fa-brands fa-github"></i> Code</a>
             </div>
             <div class="venue-tag">Preprint</div>
@@ -268,8 +364,8 @@
               Zhenhao Shen*, Zeming Yang*, <strong>Yue Chen</strong>, Yuran Wang, Shengqiang Xu, Mingleyang Li, Hao Dong, Ruihai Wu†
             </div>
             <div class="links">
-              <a href="https://yzmyalier.github.io/HeteroGenManip/" target="_blank"><i class="fa-solid fa-globe"></i> Project</a> /
-              <a href="https://arxiv.org/pdf/2605.10201" target="_blank"><i class="fa-solid fa-file-pdf"></i> Paper</a> /
+              <a href="https://yzmyalier.github.io/HeteroGenManip/" target="_blank"><i class="fa-solid fa-globe"></i> Project</a>
+              <a href="https://arxiv.org/pdf/2605.10201" target="_blank"><i class="fa-solid fa-file-pdf"></i> Paper</a>
               <a href="https://github.com/YzmYalier/HeteroGenManip" target="_blank"><i class="fa-brands fa-github"></i> Code</a>
             </div>
             <div class="venue-tag">Preprint</div>
@@ -286,7 +382,7 @@
               Haoxiao Wang*, Antao Xiang*, Haiyang Sun*, Peilin Sun, Changhao Pan, Yifu Chen, Minjie Hong, Weijie Wang, Shuang Chen, <strong>Yue Chen</strong>, Zhou Zhao‡
             </div>
             <div class="links">
-              <a href="https://wang-haoxiao.github.io/DiGSeg/" target="_blank"><i class="fa-solid fa-globe"></i> Project</a> /
+              <a href="https://wang-haoxiao.github.io/DiGSeg/" target="_blank"><i class="fa-solid fa-globe"></i> Project</a>
               <a href="https://arxiv.org/pdf/2604.24575" target="_blank"><i class="fa-solid fa-file-pdf"></i> Paper</a>
             </div>
             <div class="venue-line">
@@ -305,8 +401,8 @@
               <strong>Yue Chen</strong>, Yifei Sun, Lu Wang, Fangkai Yang, Pu Zhao, Minjie Hong, Yifei Dong, Minghua He, Nan Hu, Jianjin Zhang, Zhiwei Dai, Yuefeng Zhan, Weihao Han, Hao Sun, Qingwei Lin, Weiwei Deng, Feng Sun, Qi Zhang, Saravan Rajmohan, Dongmei Zhang
             </div>
             <div class="links">
-              <a href="https://duet-rec.github.io/" target="_blank"><i class="fa-solid fa-globe"></i> Project</a> /
-              <a href="https://arxiv.org/abs/2604.13801" target="_blank"><i class="fa-solid fa-file-pdf"></i> Paper</a> /
+              <a href="https://duet-rec.github.io/" target="_blank"><i class="fa-solid fa-globe"></i> Project</a>
+              <a href="https://arxiv.org/abs/2604.13801" target="_blank"><i class="fa-solid fa-file-pdf"></i> Paper</a>
               <a href="https://github.com/duet-review/duet_code" target="_blank"><i class="fa-brands fa-github"></i> Code</a>
             </div>
             <div class="venue-line">
@@ -327,8 +423,8 @@
               Kaixuan Wang*, Tianxing Chen*, Jiawei Liu*, Honghao Su*, Shaolong Zhu*, Mingxuan Wang, Zixuan Li, <strong>Yue Chen</strong>, Huan-ang Gao, Yusen Qin, Qixuan Zhang, Jiawei Wang, Lan Xu, Jingyi Yu, Yao Mu†, Ping Luo†
             </div>
             <div class="links">
-              <a href="https://manitwin.github.io/" target="_blank"><i class="fa-solid fa-globe"></i> Project</a> /
-              <a href="https://arxiv.org/pdf/2603.16866" target="_blank"><i class="fa-solid fa-file-pdf"></i> Paper</a> /
+              <a href="https://manitwin.github.io/" target="_blank"><i class="fa-solid fa-globe"></i> Project</a>
+              <a href="https://arxiv.org/pdf/2603.16866" target="_blank"><i class="fa-solid fa-file-pdf"></i> Paper</a>
               <a href="https://huggingface.co/datasets/ManiTwin/ManiTwin-100K/tree/main" target="_blank"><i class="fa-solid fa-database"></i> Data</a>
             </div>
             <div class="venue-tag">Preprint</div>
@@ -345,8 +441,8 @@
               Mingleyang Li*, Yuran Wang*, <strong>Yue Chen</strong>, Tianxing Chen, Jiaqi Liang, Zishun Shen, Haoran Lu, Ruihai Wu, Hao Dong
             </div>
             <div class="links">
-              <a href="https://garmentpile2.github.io/" target="_blank"><i class="fa-solid fa-globe"></i> Project</a> / 
-              <a href="https://arxiv.org/abs/2603.04158" target="_blank"><i class="fa-solid fa-file-pdf"></i> Paper</a> / 
+              <a href="https://garmentpile2.github.io/" target="_blank"><i class="fa-solid fa-globe"></i> Project</a> 
+              <a href="https://arxiv.org/abs/2603.04158" target="_blank"><i class="fa-solid fa-file-pdf"></i> Paper</a> 
               <a href="https://github.com/d-finite/GarmentPile2" target="_blank"><i class="fa-brands fa-github"></i> Code</a>
             </div>
             <div class="venue-line">
@@ -365,8 +461,8 @@
               Tianxing Chen*, Yuran Wang*, Mingleyang Li*, Yan Qin*, Hao Shi, Zixuan Li, Yifan Hu, Yuingsheng Zhang, Kaixuan Wang, <strong>Yue Chen</strong>, Hongcheng Wang, Renjing Xu, Ruihai Wu, Yao Mu, Yaodong Yang, Hao Dong†, Ping Luo†
             </div>
             <div class="links">
-              <a href="https://rmbench.github.io/" target="_blank"><i class="fa-solid fa-globe"></i> Project</a> /
-              <a href="https://arxiv.org/pdf/2603.01229" target="_blank"><i class="fa-solid fa-file-pdf"></i> Paper</a> /
+              <a href="https://rmbench.github.io/" target="_blank"><i class="fa-solid fa-globe"></i> Project</a>
+              <a href="https://arxiv.org/pdf/2603.01229" target="_blank"><i class="fa-solid fa-file-pdf"></i> Paper</a>
               <a href="https://github.com/robotwin-Platform/rmbench" target="_blank"><i class="fa-brands fa-github"></i> Code</a>
             </div>
             <div class="venue-tag">Preprint</div>
@@ -383,8 +479,8 @@
               Ziyu Zhu, <strong>Yue Chen</strong>, Xirui Liang, Hojin Bae, Yuran Wang, Zhen Yuan, Ruihai Wu, Hao Dong
             </div>
             <div class="links">
-              <a href="https://sparse-meets-dense.github.io/" target="_blank"><i class="fa-solid fa-globe"></i> Project</a> / 
-              <a href="resource/smd.pdf"><i class="fa-solid fa-file-pdf"></i> Paper</a> / 
+              <a href="https://sparse-meets-dense.github.io/" target="_blank"><i class="fa-solid fa-globe"></i> Project</a> 
+              <a href="resource/smd.pdf"><i class="fa-solid fa-file-pdf"></i> Paper</a> 
               <a href="https://sparse-meets-dense.github.io/"><i class="fa-brands fa-github"></i> Code</a>
             </div>
             <div class="venue-line">
@@ -405,8 +501,8 @@
               Zeyi Li, Yushi Yang, Shawn Xie, Jingkai Xu, Tianxing Chen, Yuran Wang, Zhenhao Shen, Yan Shen, <strong>Yue Chen</strong>, Wenjun Li, Yukun Zheng, Chaorui Zhang, Siyi Lin, Fei Teng, Hongjun Yang, Ming Chen, Steve Xie, Ruihai Wu
             </div>
             <div class="links">
-              <a href="https://lehome-web.github.io/" target="_blank"><i class="fa-solid fa-globe"></i> Project</a> / 
-              <a href="resource/lehome.pdf" target="_blank"><i class="fa-solid fa-file-pdf"></i> Paper</a> / 
+              <a href="https://lehome-web.github.io/" target="_blank"><i class="fa-solid fa-globe"></i> Project</a> 
+              <a href="resource/lehome.pdf" target="_blank"><i class="fa-solid fa-file-pdf"></i> Paper</a> 
               <a href="https://github.com/lehome-official/lehome-challenge" target="_blank"><i class="fa-brands fa-github"></i> Code</a>
             </div>
             <div class="venue-line">
@@ -426,8 +522,8 @@
               <strong>Yue Chen*</strong>, Muqing Jiang*, Kaifeng Zheng*, Jiaqi Liang, Chenrui Tie, Haoran Lu, Ruihai Wu†, Hao Dong†
             </div>
             <div class="links">
-              <a href="https://pa3ff.github.io/" target="_blank"><i class="fa-solid fa-globe"></i> Project</a> / 
-              <a href="http://arxiv.org/abs/2602.14193"><i class="fa-solid fa-file-pdf"></i> Paper</a> / 
+              <a href="https://pa3ff.github.io/" target="_blank"><i class="fa-solid fa-globe"></i> Project</a> 
+              <a href="http://arxiv.org/abs/2602.14193"><i class="fa-solid fa-file-pdf"></i> Paper</a> 
               <a href="https://github.com/PA3FF/PA3FF"><i class="fa-brands fa-github"></i> Code</a>
             </div>
             <div class="venue-line">
@@ -447,8 +543,8 @@
               Huichi Zhou*, Kin-Hei Lee*, Zhonghao Zhan*, <strong>Yue Chen</strong>, et al.
             </div>
             <div class="links">
-              <a href="https://trust-rag.github.io/" target="_blank"><i class="fa-solid fa-globe"></i> Project</a> / 
-              <a href="https://arxiv.org/pdf/2501.00879" target="_blank"><i class="fa-solid fa-file-pdf"></i> Paper</a> / 
+              <a href="https://trust-rag.github.io/" target="_blank"><i class="fa-solid fa-globe"></i> Project</a> 
+              <a href="https://arxiv.org/pdf/2501.00879" target="_blank"><i class="fa-solid fa-file-pdf"></i> Paper</a> 
               <a href="https://github.com/HuichiZhou/TrustRAG" target="_blank"><i class="fa-brands fa-github"></i> Code</a>
             </div>
             <div class="venue-line">
@@ -468,8 +564,8 @@
               Jiaqi Liang*, <strong>Yue Chen*</strong>, Qize Yu*, Yan Shen, Haipeng Zhang, Hao Dong, Ruihai Wu†
             </div>
             <div class="links">
-              <a href="https://a3d-11011.github.io/" target="_blank"><i class="fa-solid fa-globe"></i> Project</a> / 
-              <a href="#"><i class="fa-solid fa-file-pdf"></i> Paper</a> / 
+              <a href="https://a3d-11011.github.io/" target="_blank"><i class="fa-solid fa-globe"></i> Project</a> 
+              <a href="#"><i class="fa-solid fa-file-pdf"></i> Paper</a> 
               <a href="https://github.com/a3d-11011/Adaptive-Affordance-Assembly-with-Dual-Arm-Manipulation" target="_blank"><i class="fa-brands fa-github"></i> Code</a>
             </div>
             <div class="venue-line">
@@ -489,9 +585,9 @@
               Yuran Wang*, Ruihai Wu*, <strong>Yue Chen*</strong>, Jiarui Wang, Jiaqi Liang, Ziyu Zhu, Haoran Geng, Pieter Abbeel, Jitendra Malik, Hao Dong
             </div>
             <div class="links">
-              <a href="https://wayrise.github.io/DexGarmentLab/" target="_blank"><i class="fa-solid fa-globe"></i> Project</a> / 
-              <a href="https://arxiv.org/pdf/2505.11032" target="_blank"><i class="fa-solid fa-file-pdf"></i> Paper</a> / 
-              <a href="https://github.com/wayrise/DexGarmentLab" target="_blank"><i class="fa-brands fa-github"></i> Code</a> / 
+              <a href="https://wayrise.github.io/DexGarmentLab/" target="_blank"><i class="fa-solid fa-globe"></i> Project</a> 
+              <a href="https://arxiv.org/pdf/2505.11032" target="_blank"><i class="fa-solid fa-file-pdf"></i> Paper</a> 
+              <a href="https://github.com/wayrise/DexGarmentLab" target="_blank"><i class="fa-brands fa-github"></i> Code</a> 
               <a href="https://huggingface.co/datasets/wayrise/DexGarmentLab/tree/main" target="_blank"><i class="fa-solid fa-database"></i> Data</a>
             </div>
             <div class="venue-line">
@@ -511,8 +607,8 @@
               Minghua He*, <strong>Yue Chen*</strong>, Fangkai Yang, Pu Zhao, Wenjie Yin, Yu Kang, Qingwei Lin, Saravan Rajmohan, Dongmei Zhang
             </div>
             <div class="links">
-              <a href="https://arxiv.org/abs/2501.18460" target="_blank"><i class="fa-solid fa-file-pdf"></i> Paper</a> / 
-              <a href="#"><i class="fa-solid fa-globe"></i> Project</a> / 
+              <a href="https://arxiv.org/abs/2501.18460" target="_blank"><i class="fa-solid fa-file-pdf"></i> Paper</a> 
+              <a href="#"><i class="fa-solid fa-globe"></i> Project</a> 
               <a href="#"><i class="fa-brands fa-github"></i> Code</a>
             </div>
             <div class="venue-line">
@@ -532,8 +628,8 @@
               <strong>Yue Chen*</strong>, Minghua He*, Fangkai Yang, Pu Zhao, Lu Wang, Yu Kang, Yifei Dong, Yuefeng Zhan, Hao Sun, Qingwei Lin, Saravan Rajmohan, Dongmei Zhang
             </div>
             <div class="links">
-              <a href="https://arxiv.org/abs/2508.01245" target="_blank"><i class="fa-solid fa-file-pdf"></i> Paper</a> / 
-              <a href="#"><i class="fa-solid fa-globe"></i> Project</a> / 
+              <a href="https://arxiv.org/abs/2508.01245" target="_blank"><i class="fa-solid fa-file-pdf"></i> Paper</a> 
+              <a href="#"><i class="fa-solid fa-globe"></i> Project</a> 
               <a href="#"><i class="fa-brands fa-github"></i> Code</a>
             </div>
             <div class="venue-tag">Under Review</div>
@@ -550,8 +646,8 @@
               Ruihai Wu*, Ziyu Zhu*, Yuran Wang*, <strong>Yue Chen</strong>, Jiarui Wang, Hao Dong
             </div>
             <div class="links">
-              <a href="https://garmentpile.github.io/" target="_blank"><i class="fa-solid fa-globe"></i> Project</a> /
-              <a href="https://arxiv.org/abs/2503.09243" target="_blank"><i class="fa-solid fa-file-pdf"></i> Paper</a> /
+              <a href="https://garmentpile.github.io/" target="_blank"><i class="fa-solid fa-globe"></i> Project</a>
+              <a href="https://arxiv.org/abs/2503.09243" target="_blank"><i class="fa-solid fa-file-pdf"></i> Paper</a>
               <a href="https://github.com/AlwaySleepy/Garment-Pile" target="_blank"><i class="fa-brands fa-github"></i> Code</a>
             </div>
             <div class="venue-tag">CVPR 2025</div>
@@ -568,9 +664,9 @@
               Chenrui Tie*, <strong>Yue Chen*</strong>, Ruihai Wu*, Boxuan Dong, Zeyi Li, Chongkai Gao, Hao Dong
             </div>
             <div class="links">
-              <a href="https://et-seed.github.io/" target="_blank"><i class="fa-solid fa-globe"></i> Project</a> / 
-              <a href="https://arxiv.org/abs/2411.03990" target="_blank"><i class="fa-solid fa-file-pdf"></i> Paper</a> / 
-              <a href="https://github.com/Cold114514/ET-SEED" target="_blank"><i class="fa-brands fa-github"></i> Code</a> / 
+              <a href="https://et-seed.github.io/" target="_blank"><i class="fa-solid fa-globe"></i> Project</a> 
+              <a href="https://arxiv.org/abs/2411.03990" target="_blank"><i class="fa-solid fa-file-pdf"></i> Paper</a> 
+              <a href="https://github.com/Cold114514/ET-SEED" target="_blank"><i class="fa-brands fa-github"></i> Code</a> 
               <a href="https://et-seed.github.io/static/videos/ET-SEED_sup_video.mp4" target="_blank"><i class="fa-solid fa-video"></i> Video</a>
             </div>
             <div class="venue-tag">ICLR 2025</div>
@@ -595,7 +691,7 @@
 
       </section>
 
-      <section class="section honors">
+      <section class="section honors" id="honors">
         <h2 class="section-title">Honors and Awards</h2>
         <ul class="honors-list">
           <li>
@@ -628,7 +724,7 @@
       </section>
 
       <footer class="footer">
-        © Yue Chen <span aria-hidden="true">·</span> Latest updated Jul., 2026
+        © Yue Chen <span aria-hidden="true">·</span> Latest updated Sep., 2026
       </footer>
       <div class="visitor-badge">
         <a href="https://visitorbadge.io/status?path=yuechen0614.github.io" target="_blank" rel="noopener noreferrer">
@@ -660,7 +756,7 @@
 
           var target = document.getElementById(id);
           if (!target || !target.classList.contains('paper-card')) return;
-          if (!target.classList.contains('first-author')) {
+          if (!target.classList.contains('first-author') && !target.classList.contains('selected')) {
             setFilter('all');
           }
         }
@@ -674,6 +770,96 @@
         setFilter('selected');
         revealHashTarget();
         window.addEventListener('hashchange', revealHashTarget);
+
+        function shouldKeepAuthor(html) {
+          if (/<strong[\s>]/i.test(html)) return true;
+          var text = html.replace(/<[^>]+>/g, '');
+          return /[*†‡§]/.test(text);
+        }
+
+        function buildShortAuthors(raw, untilSelf) {
+          var tokens = raw.split(/,\s*/).map(function (token) {
+            return token.trim();
+          }).filter(Boolean);
+          var out = [];
+
+          if (untilSelf) {
+            var seenSelf = false;
+            tokens.forEach(function (token) {
+              if (seenSelf) return;
+              out.push(token);
+              if (/<strong[\s>]/i.test(token)) seenSelf = true;
+            });
+            if (seenSelf && out.length < tokens.length) {
+              out.push('<span class="authors-ellipsis">...</span>');
+            }
+            return out.join(', ');
+          }
+
+          var pendingEllipsis = false;
+          tokens.forEach(function (token) {
+            if (shouldKeepAuthor(token)) {
+              if (pendingEllipsis) {
+                out.push('<span class="authors-ellipsis">...</span>');
+                pendingEllipsis = false;
+              }
+              out.push(token);
+            } else {
+              pendingEllipsis = true;
+            }
+          });
+
+          if (pendingEllipsis) {
+            out.push('<span class="authors-ellipsis">...</span>');
+          }
+
+          return out.join(', ');
+        }
+
+        function renderAuthors(el, expanded) {
+          var detailed = !!expanded;
+          el.classList.toggle('is-detailed', detailed);
+          el.innerHTML = (detailed ? el.dataset.full : el.dataset.short) +
+            ' <button type="button" class="authors-detail-btn" aria-expanded="' +
+            detailed + '">' +
+            (detailed ? 'Hide detailed author list' : 'Detailed author list') +
+            '</button>';
+          el.querySelector('.authors-detail-btn').addEventListener('click', function () {
+            renderAuthors(el, !el.classList.contains('is-detailed'));
+          });
+        }
+
+        section.querySelectorAll('.authors-long').forEach(function (el) {
+          var raw = el.innerHTML.trim();
+          if (!raw || raw.indexOf(',') === -1) return;
+
+          var shortHtml = buildShortAuthors(raw, el.classList.contains('authors-until-self'));
+          if (shortHtml.indexOf('authors-ellipsis') === -1) return;
+
+          el.dataset.full = raw;
+          el.dataset.short = shortHtml;
+          renderAuthors(el, false);
+        });
+      })();
+
+      (function () {
+        var links = document.querySelectorAll('.page-nav a');
+        var targets = ['about', 'news', 'publications', 'honors'].map(function (id) {
+          return document.getElementById(id);
+        }).filter(Boolean);
+
+        function setActive() {
+          var current = targets[0] && targets[0].id;
+          targets.forEach(function (el) {
+            if (el.getBoundingClientRect().top - 90 <= 0) current = el.id;
+          });
+          links.forEach(function (link) {
+            link.classList.toggle('is-active', link.getAttribute('href') === '#' + current);
+          });
+        }
+
+        window.addEventListener('scroll', setActive, { passive: true });
+        setActive();
       })();
     </script>
   </body>
