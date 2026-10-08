@@ -660,10 +660,6 @@ a:hover {
   html {
     scroll-behavior: auto;
   }
-
-  .hello-intro {
-    display: none;
-  }
 }
 
 /* Handwritten name entrance */

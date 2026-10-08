@@ -926,11 +926,6 @@
         var intro = document.getElementById('hello-intro');
         if (!intro) return;
 
-        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-          intro.remove();
-          return;
-        }
-
         document.body.classList.add('hello-lock');
         var left = false;
 
