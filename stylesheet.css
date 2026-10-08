@@ -660,4 +660,127 @@ a:hover {
   html {
     scroll-behavior: auto;
   }
+
+  .hello-intro {
+    display: none;
+  }
+}
+
+/* Handwritten name entrance */
+body.hello-lock {
+  overflow: hidden;
+}
+
+.hello-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: #050505;
+  display: grid;
+  place-items: center;
+}
+
+.hello-intro::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 64%;
+  width: 28vmin;
+  height: 28vmin;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, rgba(255, 214, 140, 0.42) 0%, rgba(255, 244, 220, 0.16) 28%, rgba(140, 210, 230, 0.1) 52%, transparent 72%);
+  filter: blur(6px);
+  pointer-events: none;
+}
+
+.hello-intro.is-leaving {
+  animation: helloOut 0.85s ease forwards;
+  pointer-events: none;
+}
+
+.hello-enter {
+  all: unset;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  cursor: pointer;
+}
+
+.hello-svg {
+  position: absolute;
+  left: 50%;
+  top: 64%;
+  z-index: 1;
+  width: min(148px, 38vw);
+  height: auto;
+  transform: translate(-50%, -50%);
+  overflow: visible;
+}
+
+.boot-blades {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 2;
+  width: 130vmax;
+  height: 130vmax;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0.78);
+  animation: irisOpen 2.5s cubic-bezier(0.14, 0.72, 0.18, 1) forwards;
+}
+
+.hello-svg path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: helloDraw var(--d, 0.6s) cubic-bezier(0.45, 0.05, 0.22, 1) var(--t, 0s) forwards;
+}
+
+.hello-caption {
+  position: absolute;
+  left: 50%;
+  bottom: 6.5vh;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 244, 224, 0.62);
+  animation: helloIn 0.8s ease 2.55s both;
+}
+
+.hello-caption::before,
+.hello-caption::after {
+  content: "";
+  width: 26px;
+  height: 1px;
+  background: rgba(228, 194, 122, 0.55);
+}
+
+@keyframes helloDraw {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes irisOpen {
+  0% { transform: translate(-50%, -50%) scale(0.78); opacity: 1; }
+  72% { opacity: 1; }
+  100% { transform: translate(-50%, -50%) scale(2.65); opacity: 0; }
+}
+
+@keyframes helloIn {
+  from { opacity: 0; transform: translateX(-50%) translateY(8px); }
+  to { opacity: 1; transform: translateX(-50%); }
+}
+
+@keyframes helloOut {
+  to { opacity: 0; }
 }
