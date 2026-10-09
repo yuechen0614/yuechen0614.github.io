@@ -662,7 +662,7 @@ a:hover {
   }
 }
 
-/* Handwritten name entrance */
+/* Entrance: gold iris, then a set title. Click to continue. */
 body.hello-lock {
   overflow: hidden;
 }
@@ -671,24 +671,7 @@ body.hello-lock {
   position: fixed;
   inset: 0;
   z-index: 100;
-  background: #050505;
-  display: grid;
-  place-items: center;
-}
-
-.hello-intro::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 64%;
-  width: 28vmin;
-  height: 28vmin;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  background:
-    radial-gradient(circle, rgba(255, 214, 140, 0.42) 0%, rgba(255, 244, 220, 0.16) 28%, rgba(140, 210, 230, 0.1) 52%, transparent 72%);
-  filter: blur(6px);
-  pointer-events: none;
+  background: #0a0a0a;
 }
 
 .hello-intro.is-leaving {
@@ -698,60 +681,97 @@ body.hello-lock {
 
 .hello-enter {
   all: unset;
+  position: relative;
   width: 100%;
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0;
+  display: block;
   cursor: pointer;
 }
 
-.hello-svg {
+.boot-glow {
   position: absolute;
-  left: 50%;
-  top: 64%;
+  inset: 0;
   z-index: 1;
-  width: min(186px, 72vw);
-  height: auto;
-  transform: translate(-50%, -50%);
-  overflow: visible;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 50%, rgba(201, 165, 88, 0.5) 0%, rgba(201, 165, 88, 0.12) 28%, transparent 60%);
+  animation: boot-glow 2.1s ease-out both;
+}
+
+.boot-stage {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
 }
 
 .boot-blades {
-  position: absolute;
-  left: 50%;
-  top: 64%;
-  z-index: 2;
-  width: 100vmax;
-  height: 100vmax;
-  pointer-events: none;
-  transform: translate(-50%, -50%) scale(0.92);
-  animation: irisOpen 2.5s cubic-bezier(0.14, 0.72, 0.18, 1) forwards;
+  width: 110vw;
+  height: 110vw;
+  transform-origin: center;
+  animation: boot-blades 2.1s cubic-bezier(0.87, 0, 0.13, 1) both;
 }
 
-.hello-svg path {
-  stroke-dasharray: 1;
-  stroke-dashoffset: 1;
-  animation: helloDraw var(--d, 0.6s) cubic-bezier(0.45, 0.05, 0.22, 1) var(--t, 0s) forwards;
+.boot-blades polygon {
+  vector-effect: non-scaling-stroke;
+}
+
+.boot-title {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 16%;
+  z-index: 3;
+  text-align: center;
+  pointer-events: none;
+  animation: boot-title 2.1s ease-out both;
+}
+
+.boot-cn,
+.boot-en {
+  display: block;
+}
+
+.boot-cn {
+  font-family: "Noto Serif SC", "Songti SC", "STSong", serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.5em;
+  padding-left: 0.5em;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.boot-en {
+  margin: 0.75rem 0 0;
+  font-family: Manrope, "Helvetica Neue", sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.45em;
+  padding-left: 0.45em;
+  text-transform: uppercase;
+  color: #c9a558;
 }
 
 .hello-caption {
   position: absolute;
   left: 50%;
   bottom: max(18px, calc(env(safe-area-inset-bottom) + 12px));
-  z-index: 3;
+  z-index: 4;
   display: flex;
   align-items: center;
   gap: 14px;
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
+  font-family: Manrope, "Helvetica Neue", sans-serif;
   font-size: 0.72rem;
   font-weight: 400;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: rgba(255, 244, 224, 0.62);
-  animation: helloIn 0.8s ease 2.55s both;
+  white-space: nowrap;
+  color: rgba(255, 255, 255, 0.55);
+  animation: helloIn 0.8s ease 1.5s both;
 }
 
 .hello-caption::before,
@@ -759,35 +779,29 @@ body.hello-lock {
   content: "";
   width: 26px;
   height: 1px;
-  background: rgba(228, 194, 122, 0.55);
+  background: rgba(201, 165, 88, 0.7);
 }
 
-@keyframes helloDraw {
-  to { stroke-dashoffset: 0; }
+@keyframes boot-blades {
+  0% { transform: scale(0.34) rotate(0deg); opacity: 1; }
+  18% { transform: scale(0.34) rotate(0deg); opacity: 1; }
+  62% { transform: scale(1.7) rotate(14deg); opacity: 1; }
+  82% { opacity: 1; }
+  100% { transform: scale(2.4) rotate(22deg); opacity: 0; }
 }
 
-@keyframes irisOpen {
-  0% { transform: translate(-50%, -50%) scale(0.92); opacity: 1; }
-  72% { opacity: 1; }
-  100% { transform: translate(-50%, -50%) scale(1.7); opacity: 0; }
+@keyframes boot-glow {
+  0% { opacity: 0; transform: scale(0.3); }
+  35% { opacity: 0; transform: scale(0.3); }
+  60% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(1.6); }
 }
 
-@media (max-width: 768px) {
-  .hello-svg,
-  .boot-blades,
-  .hello-intro::before {
-    top: 58%;
-  }
-
-  .hello-svg {
-    width: min(210px, 82vw, 25vmax);
-  }
-
-  .hello-caption {
-    gap: 10px;
-    font-size: 0.68rem;
-    letter-spacing: 0.16em;
-  }
+@keyframes boot-title {
+  0% { opacity: 0; transform: translateY(14px); }
+  14% { opacity: 0; transform: translateY(14px); }
+  30% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes helloIn {
@@ -797,4 +811,29 @@ body.hello-lock {
 
 @keyframes helloOut {
   to { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .boot-glow,
+  .boot-blades,
+  .boot-title,
+  .hello-caption {
+    animation: none;
+  }
+
+  .boot-blades,
+  .boot-glow {
+    opacity: 0;
+  }
+
+  .boot-title,
+  .hello-caption {
+    opacity: 1;
+    transform: none;
+  }
+
+  .hello-caption {
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
