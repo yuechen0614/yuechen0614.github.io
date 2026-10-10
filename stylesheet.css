@@ -756,32 +756,6 @@ body.hello-lock {
   color: #c9a558;
 }
 
-.hello-caption {
-  position: absolute;
-  left: 50%;
-  bottom: max(18px, calc(env(safe-area-inset-bottom) + 12px));
-  z-index: 4;
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  font-family: Manrope, "Helvetica Neue", sans-serif;
-  font-size: 0.72rem;
-  font-weight: 400;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  white-space: nowrap;
-  color: rgba(255, 255, 255, 0.55);
-  animation: helloIn 0.8s ease 1.5s both;
-}
-
-.hello-caption::before,
-.hello-caption::after {
-  content: "";
-  width: 26px;
-  height: 1px;
-  background: rgba(201, 165, 88, 0.7);
-}
-
 @keyframes boot-blades {
   0% { transform: scale(0.34) rotate(0deg); opacity: 1; }
   18% { transform: scale(0.34) rotate(0deg); opacity: 1; }
@@ -804,11 +778,6 @@ body.hello-lock {
   100% { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes helloIn {
-  from { opacity: 0; transform: translateX(-50%) translateY(8px); }
-  to { opacity: 1; transform: translateX(-50%); }
-}
-
 @keyframes helloOut {
   to { opacity: 0; }
 }
@@ -816,8 +785,7 @@ body.hello-lock {
 @media (prefers-reduced-motion: reduce) {
   .boot-glow,
   .boot-blades,
-  .boot-title,
-  .hello-caption {
+  .boot-title {
     animation: none;
   }
 
@@ -826,14 +794,8 @@ body.hello-lock {
     opacity: 0;
   }
 
-  .boot-title,
-  .hello-caption {
+  .boot-title {
     opacity: 1;
     transform: none;
-  }
-
-  .hello-caption {
-    left: 50%;
-    transform: translateX(-50%);
   }
 }
