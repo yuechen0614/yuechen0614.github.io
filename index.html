@@ -68,8 +68,11 @@
         </div>
 
         <div class="profile-image-wrapper">
-          <img src="images/yuechen.JPG" alt="Yue Chen" class="profile-img">
-          <p class="photo-credit">Picture taken by <a href="https://hemh2120.github.io/" target="_blank">Minghua He</a></p>
+          <button type="button" class="profile-frame" id="profile-frame" aria-label="Next photo">
+            <img src="images/CEE11CF9-FFF8-4B4F-9934-BEFCDEFD6661_1_105_c.jpeg" alt="Yue Chen by a lake" class="profile-img is-active">
+            <img src="images/F2339D26-1A25-4F15-A3CA-89435A590FDA_1_105_c.jpeg" alt="Yue Chen under autumn trees" class="profile-img">
+          </button>
+          <p class="photo-credit">Picture taken by <a href="https://skywalker-yqz.github.io/" target="_blank" rel="noopener noreferrer">Qize Yu</a></p>
         </div>
       </section>
 
@@ -260,7 +263,7 @@
             <div class="links">
               <a href="https://robodojo-benchmark.com/report/gpt-6-astra-eval" target="_blank"><i class="fa-solid fa-globe"></i> Report</a>
               <a href="https://huggingface.co/spaces/Solomonz/roboprobe-console" target="_blank"><i class="fa-solid fa-video"></i> Videos</a>
-              <span class="soon"><i class="fa-brands fa-github"></i> Code (coming soon)</span>
+              <a href="https://github.com/RoboProbe/RoboProbe" target="_blank"><i class="fa-brands fa-github"></i> Code</a>
             </div>
             <div class="venue-tag">Technical Report</div>
           </div>
@@ -905,6 +908,33 @@
         intro.addEventListener('click', leave);
         window.addEventListener('keydown', onKey);
         window.setTimeout(leave, 2100);
+      })();
+
+      (function () {
+        var frame = document.getElementById('profile-frame');
+        if (!frame) return;
+        var imgs = frame.querySelectorAll('.profile-img');
+        var index = 0;
+        var timer;
+
+        function show(next) {
+          index = (next + imgs.length) % imgs.length;
+          imgs.forEach(function (img, i) {
+            img.classList.toggle('is-active', i === index);
+          });
+        }
+
+        function start() {
+          if (timer) window.clearInterval(timer);
+          if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+          timer = window.setInterval(function () { show(index + 1); }, 5000);
+        }
+
+        frame.addEventListener('click', function () {
+          show(index + 1);
+          start();
+        });
+        start();
       })();
 
       (function () {
