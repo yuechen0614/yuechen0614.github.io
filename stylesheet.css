@@ -706,141 +706,149 @@ a:hover {
   }
 }
 
-/* Entrance: gold iris, then a set title. Click to continue. */
+/* Entrance: purple iris, bilingual signature. Click to continue. */
+:root {
+  --opening-duration: 3.86s;
+  --opening-background: #f4fafc;
+  --opening-ink-1: #8ed2ef;
+  --opening-ink-2: #5eb6e4;
+  --opening-ink-3: #3a9ed2;
+  --opening-ink-4: #6ec4e8;
+  --opening-ink-5: #a6dff4;
+}
+
 body.hello-lock {
   overflow: hidden;
 }
 
-.hello-intro {
+.intro {
+  --signature-width: min(390px, 62vw);
+  --iris-size: 110vw;
   position: fixed;
   inset: 0;
   z-index: 100;
-  background: #0a0a0a;
-}
-
-.hello-intro.is-leaving {
-  animation: helloOut 0.85s ease forwards;
-  pointer-events: none;
-}
-
-.hello-enter {
-  all: unset;
-  position: relative;
-  width: 100%;
-  height: 100%;
-  display: block;
+  overflow: hidden;
   cursor: pointer;
 }
 
-.boot-glow {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
+.intro.is-leaving {
+  animation: helloOut 0.7s ease forwards;
   pointer-events: none;
-  background: radial-gradient(circle at 50% 50%, rgba(201, 165, 88, 0.5) 0%, rgba(201, 165, 88, 0.12) 28%, transparent 60%);
-  animation: boot-glow 2.1s ease-out both;
 }
 
-.boot-stage {
+.intro stop:nth-child(1) { stop-color: var(--opening-ink-1); }
+.intro stop:nth-child(2) { stop-color: var(--opening-ink-2); }
+.intro stop:nth-child(3) { stop-color: var(--opening-ink-3); }
+.intro stop:nth-child(4) { stop-color: var(--opening-ink-4); }
+.intro stop:nth-child(5) { stop-color: var(--opening-ink-5); }
+
+.intro-curtain,
+.intro-glow,
+.intro-aperture {
   position: absolute;
   inset: 0;
-  z-index: 2;
+}
+
+.intro-curtain {
+  background: var(--opening-background);
+  animation: iris-curtain var(--opening-duration) linear both;
+}
+
+.intro-glow {
+  background: radial-gradient(ellipse at center, color-mix(in srgb, var(--opening-ink-2) 10%, transparent), transparent 64%);
+  animation: iris-glow var(--opening-duration) ease both;
+}
+
+.intro-aperture {
   display: flex;
   align-items: center;
   justify-content: center;
-  pointer-events: none;
 }
 
-.boot-blades {
-  width: 110vw;
-  height: 110vw;
+.intro-blades {
+  width: var(--iris-size);
+  height: var(--iris-size);
+  flex: none;
   transform-origin: center;
-  animation: boot-blades 2.1s cubic-bezier(0.87, 0, 0.13, 1) both;
+  animation: iris-blades var(--opening-duration) cubic-bezier(.87, 0, .13, 1) both;
 }
 
-.boot-blades polygon {
-  vector-effect: non-scaling-stroke;
-}
+.intro-blades g { fill: var(--opening-background); }
+.intro-blades polygon { vector-effect: non-scaling-stroke; stroke-width: 1.4px; }
 
-.boot-title {
+.intro-name {
   position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 16%;
-  z-index: 3;
-  text-align: center;
-  pointer-events: none;
-  animation: boot-title 2.1s ease-out both;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(16px, 2.5vh, 22px);
+  animation: signature-presence var(--opening-duration) linear both;
 }
 
-.boot-cn,
-.boot-en {
-  display: block;
+.signature { overflow: visible; flex: none; height: auto; }
+.signature-en { width: var(--signature-width); }
+.signature-cn { width: min(205px, 42vw); }
+.signature-stroke { stroke-dasharray: 1; stroke-dashoffset: 1; }
+.signature-stroke {
+  animation: signature-write var(--stroke-duration) cubic-bezier(.35, 0, .4, 1) var(--stroke-delay) both;
 }
 
-.boot-cn {
-  font-family: "Noto Serif SC", "Songti SC", "STSong", serif;
-  font-size: 1.5rem;
-  font-weight: 600;
-  line-height: 1;
-  letter-spacing: 0.5em;
-  padding-left: 0.5em;
-  color: rgba(255, 255, 255, 0.9);
+@keyframes signature-write { to { stroke-dashoffset: 0; } }
+@keyframes signature-presence {
+  0%, 5% { opacity: 0; }
+  12%, 76% { opacity: 1; }
+  76% { animation-timing-function: cubic-bezier(.4, 0, .2, 1); }
+  96%, 100% { opacity: 0; }
 }
-
-.boot-en {
-  margin: 0.75rem 0 0;
-  font-family: Manrope, "Helvetica Neue", sans-serif;
-  font-size: 10px;
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: 0.45em;
-  padding-left: 0.45em;
-  text-transform: uppercase;
-  color: #c9a558;
-}
-
-@keyframes boot-blades {
-  0% { transform: scale(0.34) rotate(0deg); opacity: 1; }
-  18% { transform: scale(0.34) rotate(0deg); opacity: 1; }
+@keyframes iris-blades {
+  0%, 18% { transform: scale(.34) rotate(0deg); opacity: 1; }
   62% { transform: scale(1.7) rotate(14deg); opacity: 1; }
-  82% { opacity: 1; }
-  100% { transform: scale(2.4) rotate(22deg); opacity: 0; }
+  100% { transform: scale(10) rotate(30deg); opacity: 0; }
 }
-
-@keyframes boot-glow {
-  0% { opacity: 0; transform: scale(0.3); }
-  35% { opacity: 0; transform: scale(0.3); }
+@keyframes iris-curtain {
+  0%, 68% { opacity: 1; }
+  68% { animation-timing-function: cubic-bezier(.4, 0, .2, 1); }
+  94%, 100% { opacity: 0; }
+}
+@keyframes iris-glow {
+  0%, 35% { opacity: 0; transform: scale(.3); }
   60% { opacity: 1; transform: scale(1); }
   100% { opacity: 0; transform: scale(1.6); }
 }
+@keyframes helloOut { to { opacity: 0; } }
 
-@keyframes boot-title {
-  0% { opacity: 0; transform: translateY(14px); }
-  14% { opacity: 0; transform: translateY(14px); }
-  30% { opacity: 1; transform: translateY(0); }
-  100% { opacity: 1; transform: translateY(0); }
+@media (max-width: 600px) {
+  .intro { --signature-width: 65vw; --iris-size: 160vmax; }
+  .signature-cn { width: min(185px, 48vw); }
+  .intro-name { gap: 16px; }
 }
 
-@keyframes helloOut {
-  to { opacity: 0; }
+@media (orientation: landscape) and (max-height: 540px) {
+  .intro { --signature-width: min(38vw, 290px, 90svh); }
+  .signature-cn { width: min(22vw, 155px, 44svh); }
+  .intro-name { gap: 12px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .boot-glow,
-  .boot-blades,
-  .boot-title {
+  .intro-curtain,
+  .intro-glow,
+  .intro-blades,
+  .intro-name,
+  .signature-stroke {
     animation: none;
   }
 
-  .boot-blades,
-  .boot-glow {
+  .intro-blades,
+  .intro-glow {
     opacity: 0;
   }
 
-  .boot-title {
+  .intro-name,
+  .signature-stroke {
     opacity: 1;
-    transform: none;
+    stroke-dashoffset: 0;
   }
 
   .profile-img {
